@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{7AEB8540-E8C5-4A2B-A332-D703B167F039}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Backend__Test PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Backend_Test/Context/DatabaseContext.cs">
+    <Files>
+      <File FileName="Backend_Test/Controllers/AuthController.cs" Line="1" Column="1" />
+      <File FileName="Backend_Test/Program.cs" Line="31" Column="46" />
+      <File FileName="Backend_Test/Context/DatabaseSettings.cs" Line="1" Column="1" />
+      <File FileName="Backend_Test/Context/DatabaseContext.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Backend_Test" expanded="True">
+            <Node name="Backend_Test" expanded="True">
+              <Node name="Context" expanded="True">
+                <Node name="DatabaseContext.cs" selected="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

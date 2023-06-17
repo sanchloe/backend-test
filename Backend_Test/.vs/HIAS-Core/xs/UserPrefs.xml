@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{125C0D1F-BDA3-4802-8424-22745DFDF178}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HIAS-Core/Dockerfile">
+    <Files>
+      <File FileName="HIAS-Core/appsettings.json" />
+      <File FileName="HIAS-Core/Models/User.cs" />
+      <File FileName="HIAS-Core/Models/Role.cs" />
+      <File FileName="HIAS-Core/Models/RolePermission.cs" />
+      <File FileName="HIAS-Core/Models/Permission.cs" />
+      <File FileName="HIAS-Core/Controllers/WeatherForecastController.cs" />
+      <File FileName="HIAS-Core/Context/HIASDbContext.cs" />
+      <File FileName="HIAS-Core/Program.cs" />
+      <File FileName="HIAS-Core/Context/DatabaseContext.cs" />
+      <File FileName="HIAS-Core/Dockerfile" Line="22" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HIAS-Core" expanded="True">
+            <Node name="docker-compose" expanded="True" />
+            <Node name="HIAS-Core" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Context" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+              <Node name="Dockerfile" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
