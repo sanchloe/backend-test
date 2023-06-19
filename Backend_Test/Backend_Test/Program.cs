@@ -29,6 +29,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("D
 builder.Services.AddSingleton<DatabaseContext>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<RoleRepository>();
+builder.Services.AddScoped<OrganizationRepository>();
 
 var app = builder.Build();
 
