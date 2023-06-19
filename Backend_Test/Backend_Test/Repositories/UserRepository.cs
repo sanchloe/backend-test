@@ -18,8 +18,7 @@ namespace Backend_Test.Repositories
         {
             using var connection = _databaseContext.CreateConnection();
 
-            var sql = @"SELECT Id, OrganizationId, FirstName, LastName, EmailAddress, ContactNumber,
-                        IsActive, IsDelete, CreateTimestamp, DeleteTimestamp FROM public.user;";
+            var sql = @"SELECT name, businessregistrationnumber, address, postcode, contactnumber, createdtimestamp FROM organization;";
             var result = await connection.QueryAsync<User>(sql);
 
             return result;
@@ -29,9 +28,9 @@ namespace Backend_Test.Repositories
         {
             using var connection = _databaseContext.CreateConnection();
 
-            var sql = @"SELECT Id, OrganizationId, FirstName, LastName, EmailAddress, ContactNumber,
-                        IsActive, IsDelete, CreateTimestamp, DeleteTimestamp FROM public.user
-                        WHERE Id = @Id;";
+            var sql = @"SELECT name, businessregistrationnumber, address, postcode, contactnumber, createdtimestamp
+                        FROM public.organization
+                        WHERE businessregistrationnumber = @businessregistrationnumber;";
             var result = await connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = Id });
 
             return result;
