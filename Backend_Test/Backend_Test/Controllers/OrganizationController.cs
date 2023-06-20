@@ -19,7 +19,7 @@ namespace Backend_Test.Controllers
         }
 
         [HttpGet("all")]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Organization>))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> GetAll(){
             var organizations = await _organizationRepository.GetAll();
@@ -30,5 +30,28 @@ namespace Backend_Test.Controllers
             return Ok(organizations);
         }
 
+        [HttpGet("{BusinessRegistrationNumber}")]
+        [ProducesResponseType(200, Type = typeof(Organization))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> GetById(int BusinessRegistrationNumber)
+        {
+            var user = await _organizationRepository.GetById(BusinessRegistrationNumber);
+            return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateOrganization(Organization organization)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var rowsAffected = await _organizationRepository.CreateOrganization(organization);
+
+            if (rowsAffected > 0)
+                return Ok(new { message = "Organization created" });
+            else {
+                return BadRequest("something went wrong");
+            }
+        }
     }
 }
