@@ -29,7 +29,7 @@ namespace Backend_Test.Repositories
 
             var sql = @"SELECT name, businessregistrationnumber, address, postcode, contactnumber, createdtimestamp
                         FROM organization
-                        WHERE businessregistrationnumber = @BusinessRegistrationNumber;;";
+                        WHERE businessregistrationnumber = @BusinessRegistrationNumber;";
             var result = await connection.QueryFirstOrDefaultAsync<Organization>(sql, new { BusinessRegistrationNumber = BusinessRegistrationNumber.ToString() });
 
             return result;
@@ -40,12 +40,41 @@ namespace Backend_Test.Repositories
             using var connection = _databaseContext.CreateConnection();
 
             var sql = @"INSERT INTO organization (name, businessregistrationnumber, address, postcode, contactnumber)
-            VALUES (@name, @businessregistrationnumber, @address, @postcode, @contactnumber);";
+                        VALUES (@name, @businessregistrationnumber, @address, @postcode, @contactnumber);";
             var result = await connection.ExecuteAsync(sql, new { name = organization.Name,
-            businessregistrationnumber = organization.BusinessRegistrationNumber,
-            address = organization.Address,
-            postcode = organization.PostCode,
-            contactnumber = organization.ContactNumber });
+                businessregistrationnumber = organization.BusinessRegistrationNumber,
+                address = organization.Address,
+                postcode = organization.PostCode,
+                contactnumber = organization.ContactNumber
+            });
+
+            return result;
+        }
+
+        // Modify an organization
+        public async Task<int> UpdateOrganization(int BusinessRegistrationNumber, Organization organization){
+            using var connection = _databaseContext.CreateConnection();
+
+            var sql = @"UPDATE organization SET name = @name, businessregistrationnumber = @businessregistrationnumber,
+                        address = @address, postcode = @postcode, contactnumber = @contactnumber 
+                        WHERE businessregistrationnumber = @businessregistrationnumber;";
+            var result = await connection.ExecuteAsync(sql, new {
+                businessregistrationnumber = BusinessRegistrationNumber.ToString(),
+                name = organization.Name,
+                address = organization.Address,
+                postcode = organization.PostCode,
+                contactnumber = organization.ContactNumber 
+            });
+
+            return result;
+        }
+
+        // Delete an organization
+        public async Task<IEnumerable<Organization>> DeleteOrganization(int BusinessRegistrationNumber){
+            using var connection = _databaseContext.CreateConnection();
+
+            var sql = @"DELETE FROM organization where businessregistrationnumber = @BusinessRegistrationNumber;";
+            var result = await connection.QueryAsync<Organization>(sql, new{BusinessRegistrationNumber = BusinessRegistrationNumber.ToString()});
 
             return result;
         }

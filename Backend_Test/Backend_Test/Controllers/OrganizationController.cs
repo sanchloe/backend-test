@@ -33,15 +33,15 @@ namespace Backend_Test.Controllers
         [HttpGet("{BusinessRegistrationNumber}")]
         [ProducesResponseType(200, Type = typeof(Organization))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> GetById(int BusinessRegistrationNumber)
-        {
+        public async Task<IActionResult> GetById(int BusinessRegistrationNumber){
             var user = await _organizationRepository.GetById(BusinessRegistrationNumber);
             return Ok(user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrganization(Organization organization)
-        {
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> CreateOrganization(Organization organization){
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -52,6 +52,28 @@ namespace Backend_Test.Controllers
             else {
                 return BadRequest("something went wrong");
             }
+        }
+
+        [HttpPatch("{BusinessRegistrationNumber}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> UpdateOrganization(int BusinessRegistrationNumber, Organization organization){
+            var rowsAffected = await _organizationRepository.UpdateOrganization(BusinessRegistrationNumber, organization);
+
+            if (rowsAffected > 0)
+                return Ok(new { message = "Organization updated" });
+            else {
+                return BadRequest("something went wrong");
+            }
+        }
+
+        [HttpDelete("{BusinessRegistrationNumber}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> DeleteOrganization(int BusinessRegistrationNumber){
+            var rowsAffected = await _organizationRepository.DeleteOrganization(BusinessRegistrationNumber);
+
+            return Ok(new { message = "Organization deleted" });
         }
     }
 }
