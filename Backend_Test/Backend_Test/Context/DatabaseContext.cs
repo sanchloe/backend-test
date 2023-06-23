@@ -17,7 +17,8 @@ namespace Backend_Test.Context
 
         public IDbConnection CreateConnection()
         {
-            var connectionString = $"Server={_databaseSettings.Server}; Database={_databaseSettings.Database}; User Id={_databaseSettings.UserId}; Password={_databaseSettings.Password}; Ssl Mode=VerifyCA;";
+            var connectionString = $"Server={_databaseSettings.Server}; Database={_databaseSettings.Database}; User Id={_databaseSettings.UserId}; Password={_databaseSettings.Password}; Ssl Mode=Disable; Port=9001;";
+            Console.WriteLine(connectionString);
             return new NpgsqlConnection(connectionString);
         }
     }
