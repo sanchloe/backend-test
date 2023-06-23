@@ -50,6 +50,7 @@ namespace Backend_Test.Controllers
         }
 
         [HttpPost("logout")]
+        [Authorize]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> Logout()
@@ -60,4 +61,3 @@ namespace Backend_Test.Controllers
         }
     }
 }
-
